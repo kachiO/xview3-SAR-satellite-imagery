@@ -1,0 +1,11 @@
+#ignore everything
+*
+
+#include the following
+!src
+!docker
+!requirements*
+!tools
+!configs
+!setup.*
+!pyproject.toml

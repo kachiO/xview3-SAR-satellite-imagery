@@ -1,0 +1,25 @@
+_BASE_: "Base-RCNN-FPN-xView3.yaml"
+MODEL:
+  MASK_ON: False
+  WEIGHTS: "https://dl.fbaipublicfiles.com/detectron2/COCO-Detection/faster_rcnn_R_101_FPN_3x/137851257/model_final_f6e8b1.pkl"
+  RESNETS:
+    DEPTH: 101
+DATASETS:
+  TRAIN: ("xview3-full-train",)
+  TEST: ("xview3-full-valid",)
+DATALOADER:
+  SAMPLER_TRAIN: TrainingSampler
+  DATASET_TRAIN: xView3FullSceneDataset 
+INPUT:
+  AUG:
+    - {name: MinMaxNormalize, per_channel: True}
+    - {name: RandomFlip, prob: 0.5, horizontal: False, vertical: True}
+    - {name: RandomFlip, prob: 0.5, horizontal: True, vertical: False}
+  DATA:
+    CHANNEL_NAMES: ["VH_dB", "VH_dB", "VH_dB"]
+  
+TEST:
+  INPUT:
+    AUG:
+      - {name: MinMaxNormalize, per_channel: True}
+

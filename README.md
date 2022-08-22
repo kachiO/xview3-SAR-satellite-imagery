@@ -15,6 +15,17 @@ This repository shows how to do the following:
 ### Get Started
 
 ### Instructions
+#### Installation
+
+- install dependencies:
+`pip install -r requirements_cpu.txt` OR `pip install -r requirements_gpu.txt`
+
+- install detectron2:
+`pip install git+https://github.com/facebookresearch/detectron2.git`
+
+- install repository as package:
+`pip install -e`
+
 
 ## Security
 
